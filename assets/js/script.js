@@ -279,6 +279,19 @@ const sectionCards = document.createElement("section");
 sectionCards.classList.add("cards")
 body.prepend(sectionCards);
 
+function social(social) {
+  const cardSocialEmail = document.createElement("p");
+  const cardSocialInsta = document.createElement("p");
+  const cardSociaPhone = document.createElement("p");
+  cardSocialEmail.textContent = "Email: " + users[2].social.email;
+  cardSocialInsta.textContent = "Insyagram: " + users[2].social.instagram;
+  cardSociaPhone.textContent = "Phone: " + users[2].social.phone;
+  social.append(cardSocialEmail);
+  social.append(cardSocialInsta);
+  social.append(cardSociaPhone);
+};
+
+
 for (let i = 0; i < users.length; i++) {
   const card = document.createElement("div");
   card.classList.add("card");
@@ -304,16 +317,14 @@ for (let i = 0; i < users.length; i++) {
   const cardHobbies = document.createElement("p");
   cardHobbies.textContent = users[i].hobbies;
   cardHobbiesBlock.append(cardHobbies);
-  for (let i = 0; i < users.social.length; i++) {
-    const cardSocial = documnet.createElement
-  }
+  const cardSocial = document.createElement("div");
+  cardSocial.classList.add("card__social");
+  cardInfo.append(cardSocial);
+  const cardSocialTitle = document.createElement("h3");
+  cardSocialTitle.textContent = "Social :";
+  cardSocial.append(cardSocialTitle)
+  social(cardSocial);
 }
-
-// function userSocial() {
-//   for (let i = 0; i < users.social.length; i++) {
-//     const social = Document.createElement
-//   }
-// }
 
 // const body = $("body");
 // const sectionCards = $("<section>").addClass("cards");
