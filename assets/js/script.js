@@ -1,5 +1,7 @@
 // const todo = document.querySelector(".todo-list");
 
+// const { post } = require("jquery");
+
 // let tasks = [
 //   "Сходить в магазин",
 //   "Приготовить обед",
@@ -104,23 +106,21 @@
 
 // const posts = document.querySelectorAll(".post");
 
-// // for (const item of arrAutor) {
-// //   const addAutors = document.createElement("h5");
-// //   addAutors.textContent = item;
-// //   addAutors.classList.add("autor");
-// //   posts.append(addAutors);
-// // };
-// function addAutors(item) {
-//   for (let i = 0; i < arrAutor.length; i++) {
-//     const element = arrAutor[i];
-//     const addAutors = document.createElement("h5");
-//     addAutors.textContent = item;
-//     addAutors.classList.add("autor");
-//     posts.append(addAutors);
+
+// for (let i = 0; i < arrAutor.length; i++) {
+//   // for (let i = 0; i < arrAutor.length; i++) {
+//   const addAutor = document.createElement("h5");
+//   addAutor.textContent = arrAutor[i];
+//   for (let j = 0; j < posts; j++) {
+//     posts[j].append(addAutor);
 //   }
+//   // }
 // }
-// addAutors(arrAutor)
-// console.log(posts);
+
+
+
+
+
 // №5
 
 
@@ -241,90 +241,92 @@
 
 
 
-const users = [
-  {
-    name: "Mike",
-    avatar: "assets/img/mike.png",
-    social: {
-      email: "mike@gmail.com",
-      instagram: "@mike",
-      phone: "+996 555 55 55 55",
-    },
-    hobbies: ["chess", "basketball"],
-  },
-  {
-    name: "John",
-    avatar: "assets/img/john.png",
-    social: {
-      email: "john@gmail.com",
-      instagram: "@john",
-      phone: "+996 666 55 55 55",
-    },
-    hobbies: ["tennis", "basketball"],
-  },
-  {
-    name: "Ketty",
-    avatar: "assets/img/ketty.png",
-    social: {
-      email: "ketty@gmail.com",
-      instagram: "@ketty",
-      phone: "+996 777 44 33 55",
-    },
-    hobbies: ["dance", "swimming"],
-  },
-];
+// const users = [
+//   {
+//     name: "Mike",
+//     avatar: "assets/img/mike.png",
+//     social: {
+//       email: "mike@gmail.com",
+//       instagram: "@mike",
+//       phone: "+996 555 55 55 55",
+//     },
+//     hobbies: ["chess", "basketball"],
+//   },
+//   {
+//     name: "John",
+//     avatar: "assets/img/john.png",
+//     social: {
+//       email: "john@gmail.com",
+//       instagram: "@john",
+//       phone: "+996 666 55 55 55",
+//     },
+//     hobbies: ["tennis", "basketball"],
+//   },
+//   {
+//     name: "Ketty",
+//     avatar: "assets/img/ketty.png",
+//     social: {
+//       email: "ketty@gmail.com",
+//       instagram: "@ketty",
+//       phone: "+996 777 44 33 55",
+//     },
+//     hobbies: ["dance", "swimming"],
+//   },
+// ];
 
-const body = document.querySelector("body");
-const sectionCards = document.createElement("section");
-sectionCards.classList.add("cards")
-body.prepend(sectionCards);
+// const body = document.querySelector("body");
+// const sectionCards = document.createElement("section");
+// sectionCards.classList.add("cards")
+// body.prepend(sectionCards);
 
-function social(social) {
-  const cardSocialEmail = document.createElement("p");
-  const cardSocialInsta = document.createElement("p");
-  const cardSociaPhone = document.createElement("p");
-  cardSocialEmail.textContent = "Email: " + users[2].social.email;
-  cardSocialInsta.textContent = "Insyagram: " + users[2].social.instagram;
-  cardSociaPhone.textContent = "Phone: " + users[2].social.phone;
-  social.append(cardSocialEmail);
-  social.append(cardSocialInsta);
-  social.append(cardSociaPhone);
-};
+// function social(social) {
+//   const cardSocialEmail = document.createElement("p");
+//   const cardSocialInsta = document.createElement("p");
+//   const cardSociaPhone = document.createElement("p");
+//   cardSocialEmail.textContent = "Email: " + users[2].social.email;
+//   cardSocialInsta.textContent = "Insyagram: " + users[2].social.instagram;
+//   cardSociaPhone.textContent = "Phone: " + users[2].social.phone;
+//   social.append(cardSocialEmail);
+//   social.append(cardSocialInsta);
+//   social.append(cardSociaPhone);
+// };
 
 
-for (let i = 0; i < users.length; i++) {
-  const card = document.createElement("div");
-  card.classList.add("card");
-  sectionCards.append(card);
-  const cardTitle = document.createElement("div");
-  cardTitle.classList.add("card__name");
-  card.append(cardTitle);
-  const cardUserAvatar = document.createElement("img");
-  cardUserAvatar.setAttribute("src", users[i].avatar);
-  cardTitle.append(cardUserAvatar)
-  const cardUserName = document.createElement("h2");
-  cardUserName.textContent = users[i].name;
-  cardTitle.append(cardUserName);
-  const cardInfo = document.createElement("div");
-  cardInfo.classList.add("card__info");
-  card.append(cardInfo);
-  const cardHobbiesBlock = document.createElement("div");
-  cardHobbiesBlock.classList.add("card__hobbies")
-  cardInfo.append(cardHobbiesBlock)
-  const cardHobbiesTitle = document.createElement("h3")
-  cardHobbiesTitle.textContent = "Hobies :";
-  cardHobbiesBlock.append(cardHobbiesTitle);
-  const cardHobbies = document.createElement("p");
-  cardHobbies.textContent = users[i].hobbies;
-  cardHobbiesBlock.append(cardHobbies);
-  const cardSocial = document.createElement("div");
-  cardSocial.classList.add("card__social");
-  cardInfo.append(cardSocial);
-  const cardSocialTitle = document.createElement("h3");
-  cardSocialTitle.textContent = "Social :";
-  cardSocial.append(cardSocialTitle)
-  social(cardSocial);
-}
+// for (let i = 0; i < users.length; i++) {
+//   const card = document.createElement("div");
+//   card.classList.add("card");
+//   sectionCards.append(card);
+//   const cardTitle = document.createElement("div");
+//   cardTitle.classList.add("card__name");
+//   card.append(cardTitle);
+//   const cardUserAvatar = document.createElement("img");
+//   cardUserAvatar.setAttribute("src", users[i].avatar);
+//   cardTitle.append(cardUserAvatar)
+//   const cardUserName = document.createElement("h2");
+//   cardUserName.textContent = users[i].name;
+//   cardTitle.append(cardUserName);
+//   const cardInfo = document.createElement("div");
+//   cardInfo.classList.add("card__info");
+//   card.append(cardInfo);
+//   const cardHobbiesBlock = document.createElement("div");
+//   cardHobbiesBlock.classList.add("card__hobbies")
+//   cardInfo.append(cardHobbiesBlock)
+//   const cardHobbiesTitle = document.createElement("h3")
+//   cardHobbiesTitle.textContent = "Hobies :";
+//   cardHobbiesBlock.append(cardHobbiesTitle);
+//   const cardHobbies = document.createElement("p");
+//   cardHobbies.textContent = users[i].hobbies;
+//   cardHobbiesBlock.append(cardHobbies);
+//   const cardSocial = document.createElement("div");
+//   cardSocial.classList.add("card__social");
+//   cardInfo.append(cardSocial);
+//   const cardSocialTitle = document.createElement("h3");
+//   cardSocialTitle.textContent = "Social :";
+//   cardSocial.append(cardSocialTitle)
+//   social(cardSocial);
+// }
+
+// №6
 
 // const body = $("body");
 // const sectionCards = $("<section>").addClass("cards");
@@ -352,11 +354,4 @@ for (let i = 0; i < users.length; i++) {
 //   addStructed(cardInfoUser, cardHobiesText);
 // };
 
-function addStructed(before, after) {
-  before.append(after)
-};
-
-
-// // №5 Jquery
-
-let asds = "dklmfslk"
+// №6 Jquery
