@@ -4,6 +4,7 @@
   text-decoration: none;
   color: inherit;
   box-sizing: border-box;
+  resize: none;
 }
 
 .cards {
@@ -36,6 +37,44 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+}
+
+.notebook {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Jetbrains-mono;
+}
+.notebook textarea {
+  outline: none;
+  border: 2px solid #ccc;
+  border-radius: 1.25rem;
+  padding: 0.625rem;
+}
+.notebook__btn {
+  margin-top: 7.5rem;
+}
+.notebook__btn button {
+  border: 0.125rem solid #ccc;
+  outline: none;
+  padding: 20px;
+  border-radius: 1.25rem;
+}
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.timer__btn {
+  display: flex;
+  margin-top: 3.125rem;
+  gap: 1.25rem;
 }
 
 /*# sourceMappingURL=style.css.map */
