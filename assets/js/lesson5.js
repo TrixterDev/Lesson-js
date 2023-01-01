@@ -1,5 +1,7 @@
 // let color = localStorage.getItem("color");
 
+// const { timers } = require("jquery");
+
 // if (!color) {
 //   localStorage.setItem("color", "#000")
 // }
@@ -17,30 +19,55 @@ const num = {
   sec: 00,
 };
 
+let timer;
 
-let time = document.querySelector(".time");
-
-function render() {
-  time.innerHTML = num.hour + " : " + num.min + " : " + num.sec;
-};
-
-function startTimer() {
-  const addSec = setInterval(function () {
-    num.sec++;
-    render();
-  }, 1000)
-};
-
-function stopTimer() {
-  // if (start) {
-  //   num.sec = setInterval(function () {
-  //     num.sec++;
-  //     render();
-  //   }, 1000)
-  // }
-  const stop = clearInterval();
+const start = function () {
+  num.sec++;
+  if (num.sec >= 59) {
+    num.sec = 0;
+    num.min++
+  } if (num.min >= 59) {
+    num.min = 0;
+    num.hour++
+  };
+  render()
 }
 
-const start = document.querySelector("#start").addEventListener("click", startTimer);
-const stop = document.querySelector("#stop").addEventListener("click", stopTimer);
+
+const connectTimer = document.querySelector(".time");
+
+function render() {
+  connectTimer.innerHTML = format(num.hour) + " : " + format(num.min) + " : " + format(num.sec)
+};
+
+const format = (units) => (units < 10 ? "0" + units : units);
+
+function startTimer() {
+  if (!timer) {
+    timer = setInterval(start, 1000)
+  }
+}
+
+function resetTimer() {
+  num.sec = 0;
+  num.min = 0;
+  num.hour = 0;
+  clearInterval(timer);
+  timer = null;
+  render()
+}
+
+function stopTimer() {
+  clearInterval(timer);
+  timer = null;
+}
+
+function (params) {
+
+}
+
+document.querySelector("#start").addEventListener("click", startTimer);
+document.querySelector("#stop").addEventListener("click", stopTimer);
+document.querySelector("#reset").addEventListener("click", resetTimer);
+document.querySelector("#reset").addEventListener("click", roundTimer);
 
