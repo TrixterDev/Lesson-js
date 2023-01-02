@@ -6,6 +6,13 @@
   box-sizing: border-box
   resize: none
 
+input
+  border: none
+  outline: none
+  background: none
+  border-radius: .625rem
+  padding: .625rem
+
 .cards
   display: grid
   grid-template-columns: repeat(auto-fill, minmax(34.375rem, 1fr))
@@ -64,3 +71,51 @@
     display: flex
     margin-top: 3.125rem
     gap: 1.25rem
+
+.mission-1
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+  display: flex
+  flex-direction: column
+  max-width: 34.375rem
+  justify-content: center
+  align-items: center
+  margin: auto
+  input
+    background: #4a17cb
+    border: .0938rem solid #755cb5
+    color: #fff
+    margin-top: 1.5625rem
+  button
+    margin-top: 1.5625rem
+    border: none
+    outline: none
+    background: #755cb5
+    color: #fff
+    padding: .5625rem 1.5625rem
+    cursor: pointer
+    border-radius: .75rem
+    border: .125rem solid #755cb5
+    transition: .5s all
+    &:hover
+      background: none
+      color: #755cb5
+
+  input
+    background: #4a17cb
+    border: .0938rem solid #755cb5
+    color: #fff
+    margin-top: 1.5625rem
+button
+  margin-top: 1.5625rem
+  border: none
+  outline: none
+  background: #755cb5
+  color: #fff
+  padding: .5625rem 1.5625rem
+  cursor: pointer
+  border-radius: .75rem
+  border: .125rem solid #755cb5
+  transition: .5s all
+  &:hover
+    background: none
+    color: #755cb5
