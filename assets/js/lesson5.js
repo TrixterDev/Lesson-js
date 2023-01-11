@@ -42,6 +42,10 @@ function render() {
 
 const format = (units) => (units < 10 ? "0" + units : units);
 
+function formatRound(vars) {
+  vars.textContent = `${format(num.hour)} : ${format(num.min)} : ${format(num.sec)}`
+}
+
 function startTimer() {
   if (!timer) {
     timer = setInterval(start, 1000)
@@ -64,45 +68,23 @@ function stopTimer() {
 
 const init = function () {
   arrTime = JSON.parse(localStorage.getItem("time")) || [];
-  arrTime.forEach((timer) => { addItem(timer) });
-};
-
-const removeItem = function (index) {
-  const timers = JSON.parse(localStorage.getItem("time")) || [];
-  if (timers.length) {
-    timers.splice(index, 1);
-    localStorage.setItem("time", JSON.stringify(timers));
-  }
+  arrTime.forEach(function () {
+    const round = document.querySelector(".round");
+    const addRound = document.createElement("li").textContent = arrTime;
+    formatRound(addRound);
+    round.append(addRound);
+  })
 };
 
 function roundTimer() {
-  arrTime.push({ ...num });
-  addItem(num);
+  const round = document.querySelector(".round");
+  const addRound = document.createElement("li")
+  formatRound(addRound);
+  round.append(addRound);
+  arrTime.push(`${format(num.hour)} : ${format(num.min)} : ${format(num.sec)}`);
   localStorage.getItem("time");
   localStorage.setItem("time", JSON.stringify(arrTime));
 }
-
-function addItem(name) {
-  const addRound = document.createElement("li");
-  addRound.textContent = `${format(name.hour)} : ${format(name.min)} : ${format(name.sec)}`;
-  const closeBtn = document.createElement("span");
-  closeBtn.textContent = "×";
-  closeBtn.classList.add("close");
-  document.querySelector(".round").append(addRound);
-  addRound.append(closeBtn);
-}
-
-document.querySelector(".round").addEventListener("click", function (event) {
-  const items = document.querySelectorAll("li");
-  if (event.target.classList.contains("close")) {
-    const timer = event.target.closest("li");
-    const index = [...items].indexOf(timer);
-    console.log(index);
-
-    timer.remove();
-    removeItem(index);
-  }
-})
 
 document.querySelector("#start").addEventListener("click", startTimer);
 document.querySelector("#stop").addEventListener("click", stopTimer);
